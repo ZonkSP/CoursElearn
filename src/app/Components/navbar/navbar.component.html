@@ -6,9 +6,9 @@
     <a class="navbar-brand" href="#">Navbar</a>
 
     <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars text-light"></i>
+      <fa-icon style="color: white;" [icon]="faBars"></fa-icon>
     </button>
 
     <!-- Collapsible wrapper -->
@@ -43,8 +43,7 @@
         </li>
         <li class="nav-item dropdown text-center mx-2 mx-lg-1">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
-            aria-expanded="false"
-            data-bs-toggle="dropdown">
+            aria-expanded="false" data-bs-toggle="dropdown">
             <div>
               <i class="far fa-envelope fa-lg mb-1"></i>
               <span class="badge rounded-pill badge-notification bg-primary">11</span>
