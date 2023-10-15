@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {} from '@fortawesome/free-brands-svg-icons';
 import {} from '@fortawesome/free-regular-svg-icons';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faMicrochip, faHouse, faUser, faEnvelope, faBell, faGlobe} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,5 +10,19 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 })
 
 export class NavbarComponent {
+  // !-->>>>icon variable
   faBars = faBars;
+  faChip = faMicrochip;
+  faHouse = faHouse;
+  faUser = faUser;
+  faEnvelope = faEnvelope;
+  faBell = faBell;
+  faGlobe = faGlobe;
+  // <----------!
+  public verifyLogin : boolean = false;
+  
+  public checkLogin() : void 
+  {
+    this.verifyLogin = !this.verifyLogin;
+  }
 }
