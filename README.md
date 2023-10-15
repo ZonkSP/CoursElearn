@@ -30,8 +30,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Bootstrap
 
-To get a good viewing of the project is necessary use 'npm install bootstrap@v5.3.2'.
+To get a good viewing of the project is necessary use `npm install bootstrap@v5.3.2`.
 
 ## FontAwesome
 
-To view icons in the project, Font Awesome has been used. It's necessary to use 'ng add @fortawesome/angular-fontawesome@'.
+To view icons in the project, Font Awesome has been used. It's necessary to use `ng add @fortawesome/angular-fontawesome@`.
