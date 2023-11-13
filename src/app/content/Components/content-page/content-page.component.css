@@ -1,10 +1,18 @@
-.container {
-    display: flex;
-    justify-content: center;
+.containerContent {
+    display: grid;
+    justify-items: center;
     align-items: center;
-    flex-direction: column;
-    width: max-content;
-    height: auto;
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+}
+
+.cont-welcome {
+    color: hsl(0, 0%, 100%);
+    font-size: 40px;
+    font-weight: bold;
+    font-family: monospace;
+    position: absolute;
 }
 
 /* Text animation */
@@ -14,30 +22,46 @@
     font-weight: bold;
     font-family: monospace;
     letter-spacing: 7px;
-    cursor: pointer;
 }
 
 .textLight span {
     transition: 0.5s ease-out;
 }
 
-.container:hover .textLight span:nth-child(1) {
+.containerContent:hover .textLight span:nth-child(1) {
     margin-right: 5px;
 }
 
-.container:hover .textLight span:nth-child(2) {
+.containerContent:hover .textLight span:nth-child(2) {
     margin-right: 5px;
 }
 
-.container:hover .textLight span:nth-child(2) {
+.containerContent:hover .textLight span:nth-child(2) {
     margin-left: 30px;
 }
 
-.container:hover .textLight span {
+.containerContent:hover .textLight span {
     color: #0072fe;
     border-color: black;
     text-shadow:
         0 0 10px #000000,
         0 0 20px #0482f8,
         0 0 40px #fff;
+}
+
+/* show welcome animation */
+.fade-in-welcome{
+    opacity: 1;
+    transform: scale(1) translateY(0rem); /* Agrega un efecto de escala al inicio */
+    transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+    user-select: none;
+    pointer-events: all;
+}
+
+.visible {
+    opacity: 0;
+    transform: scale(0.9) translateY(-3rem); /* Devuelve el tamaño a la normalidad al hacerse visible */
+    pointer-events: none;
 }

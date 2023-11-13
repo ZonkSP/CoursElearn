@@ -1,6 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+/* show modal animation */
+.fade-in {
+    opacity: 0;
+    transform: scale(0.9); /* Agrega un efecto de escala al inicio */
+    transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+    user-select: none;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    transform: scale(1); /* Devuelve el tamaño a la normalidad al hacerse visible */
+    pointer-events: all;
+}
+
 fa-icon{
 	font-size: 30px;
 }

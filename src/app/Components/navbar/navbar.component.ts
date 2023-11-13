@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {} from '@fortawesome/free-brands-svg-icons';
 import {} from '@fortawesome/free-regular-svg-icons';
-import {faBars, faMicrochip, faHouse, faUser, faEnvelope, faBell, faGlobe} from '@fortawesome/free-solid-svg-icons';
+import * as icons from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/login/services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +11,16 @@ import {faBars, faMicrochip, faHouse, faUser, faEnvelope, faBell, faGlobe} from 
 })
 
 export class NavbarComponent {
-  // !-->>>>icon variable
-  faBars = faBars;
-  faChip = faMicrochip;
-  faHouse = faHouse;
-  faUser = faUser;
-  faEnvelope = faEnvelope;
-  faBell = faBell;
-  faGlobe = faGlobe;
+  // !-->>>> variables
+  icon = icons;
   // <----------!
+
+  constructor(private loginService : LoginService){}
+
+  public changeViewModal() : void {
+    this.loginService.setShowModal = !this.loginService.getShowModal;
+  }
+
   public verifyLogin : boolean = false;
   
   public checkLogin() : void 
