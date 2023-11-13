@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import {faFacebook, faGooglePlus, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-modal-login',
@@ -13,7 +14,13 @@ export class ModalLoginComponent {
   fagoogle = faGooglePlus;
   falinkedin = faLinkedin;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  public showModal : boolean = false;
+
+  constructor(private el: ElementRef, private renderer: Renderer2, private loginService : LoginService) {
+    this.loginService.observableView.subscribe((state) => {
+      this.showModal = state;
+    })
+  }
 
   ngAfterViewInit(): void {
     const signUpButton = this.el.nativeElement.querySelector('#signUp');
@@ -28,4 +35,5 @@ export class ModalLoginComponent {
       this.renderer.removeClass(container, 'right-panel-active');
     });
   }
+
 }
