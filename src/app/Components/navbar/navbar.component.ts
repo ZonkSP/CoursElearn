@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {} from '@fortawesome/free-brands-svg-icons';
 import {} from '@fortawesome/free-regular-svg-icons';
 import * as icons from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,11 @@ export class NavbarComponent {
   icon = icons;
   // <----------!
 
-  constructor(private loginService : LoginService){}
+  constructor(private loginService : LoginService, private router : Router){}
+
+  public get isUserHome() : boolean {
+    return this.router.url == "/user-home";
+  }
 
   public changeViewModal() : void {
     this.loginService.setShowModal = !this.loginService.getShowModal;

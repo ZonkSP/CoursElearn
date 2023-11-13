@@ -99,7 +99,7 @@
         </form>
 
         <!-- Right links -->
-        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0" *ngIf="verifyLogin">
+        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0" *ngIf="isUserHome">
           <li class="nav-item text-center mx-2 mx-lg-3">
             <a class="nav-link" href="#!">
               <div>
@@ -107,7 +107,7 @@
               </div>
               Messages
               <span style="transform: translate(20%,40%)!important;"
-                class="position-absolute top-0 start-50 p-2 bg-danger border border-light rounded-circle">
+                class="position-absolute top-0 p-2 bg-danger border border-light rounded-circle">
                 <span class="visually-hidden">New alerts</span>
               </span>
             </a>
@@ -119,7 +119,7 @@
               </div>
               News
               <span style="transform: translate(20%,40%)!important;"
-                class="position-absolute top-0 start-50 p-2 bg-danger border border-light rounded-circle">
+                class="position-absolute top-0 p-2 bg-danger border border-light rounded-circle">
                 <span class="visually-hidden">New alerts</span>
               </span>
             </a>
@@ -128,7 +128,7 @@
         <!-- Right links -->
 
         <!-- login form button-->
-        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+        <ul *ngIf="!isUserHome" class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
           <li type="button" (click)="changeViewModal()" class="nav-item text-center mx-2 mx-lg-3">
             <a class="nav-link">
               <div>

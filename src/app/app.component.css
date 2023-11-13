@@ -1,4 +1,4 @@
-#container {
+#containerImage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
     background-size: cover;
 }
 
-#container::before {
+#containerImage::before {
     content: "";
     position: absolute;
     width: 100vw;
@@ -17,9 +17,10 @@
     filter: brightness(60%) blur(2px); /* Aplica el filtro aquí al pseudo-elemento */
 }
 
-.content{
+.contentPage{
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
+    padding-top: 10vh;
     background-color: rgba(0, 0, 0, 0.507);
     z-index: 1;
 }

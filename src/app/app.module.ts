@@ -7,6 +7,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from './login/login.module';
 import { ContentModule } from './content/content.module';
+import { HomeUserModule } from './home-user/home-user.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContentModule } from './content/content.module';
     AppRoutingModule,
     FontAwesomeModule,
     LoginModule,
-    ContentModule
+    ContentModule,
+    HomeUserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
