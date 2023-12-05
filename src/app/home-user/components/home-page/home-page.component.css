@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-* {
+.right-side * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
 }
+
+.centerUser * {
+    font-family: Montserrat;
+}
+
 .containerUser {
     width: 100vw;
     height: 90vh;
@@ -75,7 +80,6 @@
     background-color: white;
 }
 .centerUser h1 {
-    margin-top: 12vh;
     margin-left: 4vw;
     font-size: 32px;
     font-weight: bold;
@@ -85,7 +89,6 @@
 .centerUser > div {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
 }
 
 .row1 {
@@ -98,8 +101,6 @@
     margin-top: 30px;
     margin-left: 4vw;
     background-color: #5843be;
-    width: 28vw;
-    max-width: 320px;
     min-width: 239px;
     height: 130px;
     font-size: 12px;
@@ -193,8 +194,6 @@
 /* Row1 Card2 styles */
 .row1 .card2 {
     background-color: #ffede6;
-    width: 10vw;
-    max-width: 118px;
     min-width: 100px;
     /*   height: 21vh; */
     height: 130px;
@@ -240,8 +239,6 @@
 /* Row1 card3 styles */
 .row1 .card3 {
     background-color: #f6f4ff;
-    width: 10vw;
-    max-width: 118px;
     min-width: 100px;
     height: 130px;
     font-size: 12px;
@@ -452,7 +449,8 @@
 
 .row3 {
     display: flex;
-    margin-top: -7px;
+    margin-top: 7px;
+    margin-bottom: 7vh;
 }
 /* Row3 card1 styles */
 .row3 .card1 {
@@ -578,11 +576,12 @@
     background-color: #f9fafb;
 }
 .right-side .profile {
-    margin-top: 23px;
+    display: grid;
     width: 100%;
     max-width: 260px;
     height: auto;
     margin: auto;
+    justify-content: center;
 }
 .right-side .profile .profile-picture-wrapper {
     width: 110px;
@@ -599,7 +598,6 @@
     font-size: 20px;
     font-weight: 900;
     margin-top: 10px;
-    width: 162px;
     height: 25px;
     margin: auto;
 }
@@ -618,7 +616,6 @@
     margin-top: 20px;
     border: 1.2px solid #f1f3f6;
     width: 22vw;
-    max-width: 260px;
     height: 95px !important;
     border-radius: 9px;
     display: flex;
@@ -659,8 +656,6 @@
     fill: #ffa067;
 }
 .right-side .courses {
-    width: 25vw;
-    max-width: 15vw;
     height: auto;
 }
 .right-side .courses h1 {
@@ -834,10 +829,8 @@
         margin: auto;
         right: 0;
         left: 0;
-        left: 100px;
         top: 650px;
-        width: 500px;
-        max-width: 500px;
+        width: 100vw !important;
         min-width: 500px;
     }
     .centerUser h1 {
@@ -847,13 +840,12 @@
     }
 
     .row1 {
-        display: block;
+        display: flex;
     }
 
     /* Row1 Card1 styles */
     .centerUser .row1 .card1 {
         width: 300px;
-        margin: auto;
         margin-top: 30px;
         max-width: 300px;
         min-width: 239px;
@@ -865,7 +857,7 @@
         max-width: 120px;
         min-width: 100px;
         height: 140px;
-        margin-left: 100px;
+        margin-left: 50px;
     }
     .row1 .card2 h1 {
         font-size: 14px;
@@ -879,14 +871,12 @@
 
     /* Row1 card3 styles */
     .row1 .card3 {
-        position: relative;
-        left: 179px;
         bottom: 170px;
         width: 120px;
         max-width: 120px;
         min-width: 100px;
         height: 140px;
-        margin-left: 100px;
+        margin-left: 50px;
     }
 
     .row1 .card3 h1 {
@@ -901,7 +891,7 @@
 
     /* Row2 card1 styles */
     .row2 {
-        margin-top: -150px;
+        margin-bottom: 2vh;
     }
     .row2 .card1 {
         width: 230px;
@@ -1002,9 +992,7 @@
         margin: auto;
         right: 0;
         left: 0;
-        left: 100px;
-        width: 500px;
-        max-width: 500px;
+        width: 100vw;
     }
     .right-side .profile .profile-picture-wrapper {
         width: 160px;

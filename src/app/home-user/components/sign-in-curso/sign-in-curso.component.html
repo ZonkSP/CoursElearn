@@ -1,0 +1,5 @@
+<ul *ngFor="let item of cursos" class="list-group">
+    <li class="list-group-item list-group-item-action">{{item.title}}</li>
+    <button (click)="selectCurso(item.id)" type="button" class="list-group-item list-group-item-action active">Inscribir</button>
+    <br>
+</ul>

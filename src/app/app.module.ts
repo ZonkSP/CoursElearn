@@ -8,11 +8,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from './login/login.module';
 import { ContentModule } from './content/content.module';
 import { HomeUserModule } from './home-user/home-user.module';
+import { GlobalModuleModule } from './global-module/global-module.module';
+import { HttpClientModule} from '@angular/common/http';
+import { DialogComponent } from './Components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +24,9 @@ import { HomeUserModule } from './home-user/home-user.module';
     FontAwesomeModule,
     LoginModule,
     ContentModule,
-    HomeUserModule
+    HomeUserModule,
+    GlobalModuleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

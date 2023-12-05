@@ -3,31 +3,40 @@
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Create Account</h1>
-                <div class="social-container">
+                <!-- <div class="social-container">
                     <a href="#" class="social"><fa-icon [icon]="fafacebook" class="fab"></fa-icon></a>
                     <a href="#" class="social"><fa-icon [icon]="fagoogle" class="fab"></fa-icon></a>
                     <a href="#" class="social"><fa-icon [icon]="falinkedin" class="fab"></fa-icon></a>
                 </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <span>or use your email for registration</span> -->
+                <input [(ngModel)]="dataUser.name" name="name" type="text" placeholder="Name" />
+                <input [(ngModel)]="dataUser.email" name="email" type="email" placeholder="Email" />
+                <input [(ngModel)]="dataUser.password" name="password" type="password" placeholder="Password" />
+                <div class="form-floating">
+                    <select [(ngModel)]="dataUser.role" name="role" class="form-select" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option value="professor">profesor</option>
+                        <option value="student" selected>estudiante</option>
+                    </select>
+                    <label for="floatingSelect">Tipo de usuario</label>
+                </div>
+                <br><br>
+                <button (click)="registerUser(dataUser)" data-bs-target="#msgError" data-bs-toggle="modal">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>Sign in</h1>
-                <div class="social-container">
+                <!-- <div class="social-container">
                     <a href="#" class="social"><fa-icon [icon]="fafacebook" class="fab"></fa-icon></a>
                     <a href="#" class="social"><fa-icon [icon]="fagoogle" class="fab"></fa-icon></a>
                     <a href="#" class="social"><fa-icon [icon]="falinkedin" class="fab"></fa-icon></a>
                 </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <span>or use your account</span> -->
+                <input [(ngModel)]="dataUser.email" name="email" type="email" placeholder="Email" />
+                <input [(ngModel)]="dataUser.password" name="password" type="password" placeholder="Password" />
+                <!--  <a href="#">Forgot your password?</a> -->
+                <button (click)="loginUser(dataUser)" data-bs-target="#msgError" data-bs-toggle="modal">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -46,4 +55,18 @@
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="msgError" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mensaje del sistema</h5>
+            </div>
+            <div class="modal-body">
+                <p *ngIf="messageLogin">{{messageLogin}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="error = false">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
