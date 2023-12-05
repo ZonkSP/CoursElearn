@@ -1,13 +1,15 @@
-#container {
+#containerImage {
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
     background-size: cover;
+    z-index: -1;
 }
 
-#container::before {
+#containerImage::before {
     content: "";
     position: absolute;
     width: 100vw;
@@ -17,9 +19,10 @@
     filter: brightness(60%) blur(2px); /* Aplica el filtro aquí al pseudo-elemento */
 }
 
-.content{
+.contentPage{
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
+    padding-top: 10vh;
     background-color: rgba(0, 0, 0, 0.507);
     z-index: 1;
 }
@@ -33,7 +36,7 @@ footer {
     left: 0;
     right: 0;
     text-align: center;
-    z-index: 999;
+    z-index: 9;
 }
 
 footer p {

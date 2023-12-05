@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalLoginComponent } from './Components/modal-login/modal-login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserModule } from '@angular/platform-browser';
+import { GlobalModuleModule } from '../global-module/global-module.module';
 import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
-    ModalLoginComponent,
+    HomePageComponent
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     FontAwesomeModule,
+    GlobalModuleModule,
     FormsModule
-  ],
-  exports: [
-    ModalLoginComponent,
   ]
 })
-export class LoginModule { }
+export class HomeProfessorModule { }

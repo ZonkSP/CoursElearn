@@ -1,0 +1,169 @@
+<div class='containerUser'>
+    <div class='centerUser'>
+        <h1>Progress Dashboard</h1>
+        <div class='row1'>
+            <button class='card1' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 2">
+                <div class='deadline'>
+                    <span>Seleccina</span><span>Curso</span>
+                </div>
+                <div class='exam-unit'>
+                    Inscribir curso
+                </div>
+                <div class='description'>
+                    UNA NUEVA AVENTURA
+                </div>
+            </button>
+            <button type="button" class='card2' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                <div class='checkmark'>
+                    <fa-icon style="font-size: large; color: #ff8b45;" [icon]="icon_regular.faCheckCircle"></fa-icon>
+                </div>
+                <h1>Tareas</h1>
+                <p>Lista de tareas</p>
+            </button>
+            <button type="button" class='card3' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 1">
+                <div class='checkmark'>
+                    <fa-icon style="font-size: large; color: #9082d1;" [icon]="icon_regular.faCheckCircle"></fa-icon>
+                </div>
+                <h1>Informaci&oacute;n</h1>
+                <p>Informaci&oacute;n de ayuda</p>
+            </button>
+        </div>
+        <div class='row2'>
+            <button *ngIf="selectedCursoStudent" (click)="deleteCurso(selectedCursoStudent.course.id)" type="button" class='card1'>
+                <div class='nr-of-students'>
+                    {{selectedCursoStudent.course.title}}
+                </div>
+                <div class='group-homework'>
+                    <h1>ELIMINACION DEL CURSO</h1>
+                </div>
+            </button>
+            <div class='card2'>
+                <div class='spanish-flag'>
+                    <fa-icon style="font-size: xx-large;" [icon]="icon.faBrain"></fa-icon>
+                </div>
+                <h1 *ngIf="selectedCursoStudent">{{selectedCursoStudent.course.title}}</h1>
+                <div class='progress-bar'>
+                    <div class='value'>75%</div>
+                    <div class='bar'>
+                        <div class='filled'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class='row3'>
+            <div class='card1'>
+                <fa-icon [icon]="icon.faArrowCircleLeft"></fa-icon>
+                <div class='edit-icon-wrapper'>
+                    <fa-icon style="font-size: x-large; color: #5843BE;" [icon]="icon.faPencil"></fa-icon>
+                </div>
+                <div class='text'>
+                    <h1>Anterior curso</h1>
+                </div>
+            </div>
+            <div class='card2'>
+                <div class="edit-icon-wrapper">
+                    <fa-icon style="font-size: x-large; color: #ff8b45;" [icon]="icon.faBook"></fa-icon>
+                </div>
+                <div class='text'>
+                    <h1>Siguiente curso</h1>
+                </div>
+                <fa-icon [icon]="icon.faArrowCircleRight" style="margin-right: 0.5rem;"></fa-icon>
+            </div>
+        </div> -->
+    </div>
+    <div class='right-side'>
+        <div class='profile'>
+            <div class='profile-picture-wrapper'>
+                <img *ngIf="informationStudent" src="{{informationStudent.profile.photo}}"
+                    alt='profile-picture' />
+            </div>
+            <h2 *ngIf="informationStudent">{{informationStudent.name}}</h2>
+            <p>{{informationStudent.profile.bio}}</p>
+        </div>
+        <div class='card'>
+            <div class='text'>
+                <h2>Selecciona tu curso</h2>
+                <p *ngIf="selectedCursoStudent">Curso actual <br>&lt;&lt; {{selectedCursoStudent.course.title}} &gt;&gt;</p>
+            </div>
+            <br>
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class='arrow-right-wrapper' (click)="typeInformation = 3">
+                <fa-icon [icon]="icon.faArrowCircleRight" style="color: #ff8b45;"></fa-icon>
+            </button>
+        </div>
+        <div class='courses'>
+            <h1>Course Progress</h1>
+            <div class='course'>
+                <div class='complete-percentage'>
+                    63%
+                </div>
+                <div class='icon-wrapper'>
+                    <fa-icon style="font-size: x-large; color: white;" [icon]="icon.faPencil"></fa-icon>
+                </div>
+                <div class='description'>
+                    <h2>Tareas</h2>
+                    <p>Un vistazo a las tareas completadas.</p>
+                </div>
+            </div>
+            <div class='course2'>
+                <div class='complete-percentage'>
+                    78%
+                </div>
+                <div class='icon-wrapper'>
+                    <fa-icon style="font-size: x-large; color: white;" [icon]="icon.faBook"></fa-icon>
+                </div>
+                <div class='description'>
+                    <h2>Practicas</h2>
+                    <p>Pon en pratica lo aprendido.</p>
+                </div>
+            </div>
+            <div class='course3'>
+                <div class='complete-percentage'>
+                    34%
+                </div>
+                <div class='icon-wrapper'>
+                    <fa-icon style="font-size: x-large; color: white;" [icon]="icon.faBookOpen"></fa-icon>
+                </div>
+                <div class='description'>
+                    <h2>Lectura</h2>
+                    <p>Descubre nueva informacion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Cursos/informacion</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-lista-cursos *ngIf="typeInformation == 3"></app-lista-cursos>
+                <app-informacion *ngIf="typeInformation == 1"></app-informacion>
+                <app-sign-in-curso *ngIf="typeInformation == 2"></app-sign-in-curso>
+            </div>
+            <div class="modal-footer" *ngIf="typeInformation == 3">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Ver tareas</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Tareas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-lista-tareas></app-lista-tareas>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 3">Selecciona curso</button>
+            </div>
+        </div>
+    </div>
+</div>

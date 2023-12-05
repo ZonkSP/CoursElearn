@@ -1,8 +1,12 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import {faFacebook, faGooglePlus, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faGooglePlus, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { LoginService } from '../../services/login.service';
+import { User } from 'src/app/interfaces/usuarios.interface';
+import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-modal-login',
@@ -14,12 +18,28 @@ export class ModalLoginComponent {
   fagoogle = faGooglePlus;
   falinkedin = faLinkedin;
 
-  public showModal : boolean = false;
+  public dataUser: User = {
+    name: "",
+    email: "",
+    password: "",
+    role: 'student',
+    profile: {
+      photo: "string",
+      bio: "string"
+      // Otra información relevante del perfil
+    }
+  }
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private loginService : LoginService) {
+  public error : boolean = false;
+  public messageLogin : string = '';
+  public showModal: boolean = false;
+
+  constructor(private el: ElementRef, private renderer: Renderer2, private loginService: LoginService, 
+    private userService: UsersService, private router : Router, private cdr : ChangeDetectorRef) {
     this.loginService.observableView.subscribe((state) => {
       this.showModal = state;
-    })
+    });
+    
   }
 
   ngAfterViewInit(): void {
@@ -34,6 +54,61 @@ export class ModalLoginComponent {
     signInButton.addEventListener('click', () => {
       this.renderer.removeClass(container, 'right-panel-active');
     });
+  }
+
+  public loginUser(user : User) : void {
+    this.userService.loginUserFromApi(user).subscribe({
+      next: (response: any) => {
+        this.dataUser = {
+          name: "",
+          email: "",
+          password: "",
+          role: 'student',
+          profile: {
+            photo: "string",
+            bio: "string"
+            // Otra información relevante del perfil
+          }
+        };
+        window.localStorage.setItem("token", response.token);
+        this.messageLogin = "Acceso concedido";
+        this.cdr.detectChanges(); // Forzar la actualización de la vista
+        this.router.navigateByUrl('/user-home');
+        console.log(response);
+      },
+      error: (error: any) => {
+        this.messageLogin = "Error en las credenciales";
+        this.cdr.detectChanges(); // Forzar la actualización de la vista
+        this.error = true;
+        console.log(error);
+      }
+    })
+  }
+
+  public registerUser(user: User): void {
+    this.userService.registerUserFromApi(user).subscribe(
+      {
+        next: (response: any) => {
+          this.dataUser = {
+            name: "",
+            email: "",
+            password: "",
+            role: 'student',
+            profile: {
+              photo: "string",
+              bio: "string"
+              // Otra información relevante del perfil
+            }
+          };
+          console.log(response);
+        },
+        error: (error: any) => {
+          this.messageLogin = "Error en las credenciales";
+          this.error = true;
+          console.log(error);
+        }
+      }
+    )
   }
 
 }

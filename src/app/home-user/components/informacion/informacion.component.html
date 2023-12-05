@@ -1,0 +1,32 @@
+<div>
+    <ol class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Descipcion</div>
+                {{selectedCursoStudent?.course?.description}}
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Material</div>
+                <div *ngFor="let material of selectedCursoStudent?.course?.materials">
+                    {{material}}
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Videos</div>
+                <div *ngFor="let videos of selectedCursoStudent?.course?.videos">
+                    {{videos}}
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto" *ngIf="selectedCursoStudent?.course?.teacher">
+                <div class="fw-bold">Profesor</div>
+                {{selectedCursoStudent?.course?.teacher?.name}}
+            </div>
+        </li>
+    </ol>
+</div>
