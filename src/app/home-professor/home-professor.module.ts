@@ -1,23 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { HomePageProfessorComponent } from './components/home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
-import { GlobalModuleModule } from '../global-module/global-module.module';
 import { FormsModule } from '@angular/forms';
+import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
+import { InformacionCursoComponent } from './components/informacion-curso/informacion-curso.component';
 
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageProfessorComponent,
+    CreateCourseComponent,
+    ListaCursosComponent,
+    InformacionCursoComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FontAwesomeModule,
-    GlobalModuleModule,
     FormsModule
+  ],
+  exports: [
+    HomePageProfessorComponent
   ]
 })
 export class HomeProfessorModule { }

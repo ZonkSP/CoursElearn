@@ -73,7 +73,11 @@ export class ModalLoginComponent {
         window.localStorage.setItem("token", response.token);
         this.messageLogin = "Acceso concedido";
         this.cdr.detectChanges(); // Forzar la actualización de la vista
-        this.router.navigateByUrl('/user-home');
+        if (response.role == 'student') {
+          this.router.navigateByUrl('/user-home');
+        } else {
+          this.router.navigateByUrl('/user-prof');
+        }
         console.log(response);
       },
       error: (error: any) => {
