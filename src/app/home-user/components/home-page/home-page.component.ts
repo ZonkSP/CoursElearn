@@ -31,19 +31,24 @@ export class HomePageComponent{
   }
   //----------Consulta del servicio
 
+  //obtencion de un curso en general de todos los cursos existentes. VER >> cursos.service
+  //funciona con la variable que almacena la seleccion de los cursos por parte del usuario.
   public get oneCurso() : cursos {
     return this.cursosService.getSelectedCurso();
   }
 
+  //obtiene todos los cursos del alumno
   public get cursosStudent() : Enrollment[] {
     return this.cursosService.cursosStudent;
   }
 
+  //Se obtiene el curso seleccionado por el alumno, por defecto array[0]
   public get selectedCursoStudent() : Enrollment | undefined {
     //return this.cursosService.getStudentCurso();
     return this.cursosService.getCursoSelected();
   }
 
+  //obtiene el curso seleccionado >>> ver cursos.service
   public get ActivateCurso() : number {
     return this.cursosService.getCurso;
   }
@@ -56,6 +61,7 @@ export class HomePageComponent{
     return this.userService.infoUser;
   }
 
+  //obtiene la informacion del usuario
   private getInfoUser() : void {
     this.userService.getInfoUser().subscribe(
       {
@@ -71,6 +77,7 @@ export class HomePageComponent{
     )
   }
 
+  //obtiene la informacion de los cursos del estudiante
   private getCursoStudent() : void {
     this.cursosService.fetchCursosUserStudentFromApi().subscribe(
       {
@@ -86,6 +93,7 @@ export class HomePageComponent{
     )
   }
 
+  //Desuscribirse del curso
   private signOutCurso(idCurso : number) : void {
     this.cursosService.signOutCurso(idCurso).subscribe(
       {
@@ -100,6 +108,7 @@ export class HomePageComponent{
     )
   }
 
+  //Obtencion de todos los cursos
   private searchCursos(searchTerm: string = ""): void {
     this.cursosService.fetchCursosFromApi(searchTerm).subscribe(
       {
