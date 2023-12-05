@@ -1,0 +1,5 @@
+<div *ngFor="let item of infCursos; let i = index" class="list-group">
+    <button (click)="selectCurso(i)" type="button" class="list-group-item list-group-item-action"
+        [ngClass]="{active: activeCurso == i}">{{item.title}}</button>
+    <br>
+</div>

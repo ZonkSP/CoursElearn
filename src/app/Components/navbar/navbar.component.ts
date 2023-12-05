@@ -19,7 +19,11 @@ export class NavbarComponent {
   constructor(private loginService : LoginService, private router : Router){}
 
   public get isUserHome() : boolean {
-    return this.router.url == "/user-home";
+    return this.router.url == "/user-home" || this.router.url == "/user-prof";
+  }
+
+  public get isCursosList() : boolean {
+    return this.router.url == "/cursos-list";
   }
 
   public changeViewModal() : void {

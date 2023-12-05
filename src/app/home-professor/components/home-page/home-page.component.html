@@ -2,12 +2,12 @@
     <div class='centerUser'>
         <h1>Progress Dashboard</h1>
         <div class='row1'>
-            <button class='card1' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 2">
+            <button class='card1' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 1">
                 <div class='deadline'>
-                    <span>Seleccina</span><span>Curso</span>
+                    <span>Crea un nuevo</span><span>Curso</span>
                 </div>
                 <div class='exam-unit'>
-                    Inscribir curso
+                    Crear curso
                 </div>
                 <div class='description'>
                     UNA NUEVA AVENTURA
@@ -17,21 +17,21 @@
                 <div class='checkmark'>
                     <fa-icon style="font-size: large; color: #ff8b45;" [icon]="icon_regular.faCheckCircle"></fa-icon>
                 </div>
-                <h1>Tareas</h1>
-                <p>Lista de tareas</p>
+                <h1>Informacion</h1>
+                <p>Del curso</p>
             </button>
-            <button type="button" class='card3' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 1">
+            <button type="button" class='card3' data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 2">
                 <div class='checkmark'>
                     <fa-icon style="font-size: large; color: #9082d1;" [icon]="icon_regular.faCheckCircle"></fa-icon>
                 </div>
-                <h1>Informaci&oacute;n</h1>
-                <p>Informaci&oacute;n de ayuda</p>
+                <h1>Cursos creados</h1>
+                <p>Informaci&oacute;n de los cursos</p>
             </button>
         </div>
         <div class='row2'>
-            <button *ngIf="" type="button" class='card1'>
+            <button *ngIf="selectInfCurso" type="button" (click)="deleteCourse(selectInfCurso.id)" class='card1'>
                 <div class='nr-of-students'>
-                
+                    {{selectInfCurso.title}}
                 </div>
                 <div class='group-homework'>
                     <h1>ELIMINACION DEL CURSO</h1>
@@ -41,7 +41,7 @@
                 <div class='spanish-flag'>
                     <fa-icon style="font-size: xx-large;" [icon]="icon.faBrain"></fa-icon>
                 </div>
-                <h1 *ngIf=""></h1>
+                <h1 *ngIf="selectInfCurso"> {{selectInfCurso.title}} </h1>
                 <div class='progress-bar'>
                     <div class='value'>75%</div>
                     <div class='bar'>
@@ -83,10 +83,10 @@
         <div class='card'>
             <div class='text'>
                 <h2>Selecciona tu curso</h2>
-                <p *ngIf="informationProffesor">Curso actual <br>&lt;&lt;  &gt;&gt;</p>
+                <p *ngIf="selectInfCurso">Curso actual <br>&lt;&lt; {{selectInfCurso.title}}  &gt;&gt;</p>
             </div>
             <br>
-            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class='arrow-right-wrapper' (click)="typeInformation = 3">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class='arrow-right-wrapper' (click)="typeInformation = 2">
                 <fa-icon [icon]="icon.faArrowCircleRight" style="color: #ff8b45;"></fa-icon>
             </button>
         </div>
@@ -143,9 +143,11 @@
                <!--  <app-lista-cursos *ngIf="typeInformation == 3"></app-lista-cursos>
                 <app-informacion *ngIf="typeInformation == 1"></app-informacion>
                 <app-sign-in-curso *ngIf="typeInformation == 2"></app-sign-in-curso> -->
+                <app-create-course *ngIf="typeInformation == 1"></app-create-course>
+                <app-lista-cursos *ngIf="typeInformation == 2"></app-lista-cursos>
             </div>
-            <div class="modal-footer" *ngIf="typeInformation == 3">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Ver tareas</button>
+            <div class="modal-footer" *ngIf="typeInformation == 2">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Ver informacion</button>
             </div>
         </div>
     </div>
@@ -160,9 +162,10 @@
             </div>
             <div class="modal-body">
                 <!-- <app-lista-tareas></app-lista-tareas> -->
+                <app-informacion-curso></app-informacion-curso>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 3">Selecciona curso</button>
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" (click)="typeInformation = 2">Selecciona curso</button>
             </div>
         </div>
     </div>
