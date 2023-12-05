@@ -104,6 +104,8 @@ export class ModalLoginComponent {
               // Otra información relevante del perfil
             }
           };
+          this.messageLogin = "Acceso concedido";
+          this.cdr.detectChanges(); // Forzar la actualización de la vista
           console.log(response);
         },
         error: (error: any) => {

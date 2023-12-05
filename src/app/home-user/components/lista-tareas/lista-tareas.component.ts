@@ -24,7 +24,8 @@ export class ListaTareasComponent {
   //----------Consulta del servicio
 
   public get selectedCursoStudent() : Enrollment | undefined {
-    return this.cursosService.getStudentCurso();
+    //return this.cursosService.getStudentCurso();
+    return this.cursosService.getCursoSelected();
   }
 
   private getCursoStudent() : void {

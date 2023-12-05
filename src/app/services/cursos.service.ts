@@ -86,6 +86,10 @@ export class CursosService {
     return selectCurso;
   }
 
+  public getCursoSelected() : Enrollment | undefined{
+    return this.cursosStudent[this.getCurso];
+  }
+
   /* show one course */
   private slCurso : BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public observableView = this.slCurso.asObservable();

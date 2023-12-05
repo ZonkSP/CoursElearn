@@ -32,7 +32,8 @@ export class ListaCursosComponent {
   }
 
   public get selectedCursoStudent() : Enrollment | undefined {
-    return this.cursosService.getStudentCurso();
+    //return this.cursosService.getStudentCurso();
+    return this.cursosService.getCursoSelected();
   }
 
   public get cursosStudent() : Enrollment[] {
